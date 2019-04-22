@@ -11,7 +11,7 @@
     </a-assets>
 
     <!-- define a camera which will move according to the marker position -->
-    <a-marker type='pattern' url='https://raw.githubusercontent.com/bazzigom/aframeTest1/master/bubbleGum.patt'>
+    <a-marker id="marker1" type='pattern' url='https://raw.githubusercontent.com/bazzigom/aframeTest1/master/bubbleGum.patt'>
       <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
     </a-marker>
 
@@ -24,11 +24,14 @@
 
   <script>
   AFRAME.registerComponent('soundhandler', {
-      tick: function () {
-             var entity = document.querySelector('[sound]');
-           if (document.querySelector('a-marker').object3D.visible == true) {
-              entity.components.sound.playSound();
-          }
+    tick: function(t, dt) {
+      var entity = document.querySelector("#sound");
+  if (document.querySelector("#marker1").object3D.visible == true && playing == false) {
+    // MARKER IS PRESENT
+    entity.components.sound.playSound();
+  } else {
+    // MARKER IS HIDDEN, do nothing (up to you)
+  }
 
        }
   });
