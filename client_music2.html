@@ -7,7 +7,7 @@
        <a-assets>
             <audio id="sound" src="https://raw.githubusercontent.com/bazzigom/aframeTest1/master/mp3/maple.mp3" preload="auto"></audio>
         </a-assets>
-        <a-marker type='pattern' url='https://raw.githubusercontent.com/bazzigom/aframeTest1/master/bubbleGum.patt'>
+        <a-marker id="asdf1" type='pattern' url='https://raw.githubusercontent.com/bazzigom/aframeTest1/master/bubbleGum.patt'>
                 <a-box position='0 0.5 0' material='color: black;' soundhandler> 
                 </a-box>
         </a-marker>
@@ -19,7 +19,7 @@
 AFRAME.registerComponent('soundhandler', {
     tick: function () {
            var entity = document.querySelector('sound');
-         if (document.querySelector('a-marker').object3D.visible == true) {
+         if (document.querySelector('asdf1').object3D.visible == true) {
             entity.components.sound.playSound();
         }
 
